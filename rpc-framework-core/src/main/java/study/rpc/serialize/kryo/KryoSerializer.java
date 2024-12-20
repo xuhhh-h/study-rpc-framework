@@ -57,7 +57,16 @@ public class KryoSerializer implements Serializer {
 
     @Override
     public <T> T deserialize(byte[] bytes, Class<T> clazz) {
-        return null;
+        try(ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
+            Input input = new Input(byteArrayInputStream)){
+
+            Kryo kryo = kryoThreadLocal.get();
+            return kryo.readObject(input,clazz);
+
+        }catch (Exception e) {
+            log.error("Deserialization failed", e);
+            throw new RuntimeException("Deserialization failed", e);
+        }
     }
 
 

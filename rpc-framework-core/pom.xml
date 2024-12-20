@@ -11,12 +11,32 @@
     <artifactId>rpc-framework-core</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>study.rpc</groupId>
+            <artifactId>rpc-framework-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
         <!-- Kryo for serialization -->
         <dependency>
             <groupId>com.esotericsoftware</groupId>
             <artifactId>kryo</artifactId>
             <version>${kryo.version}</version>
         </dependency>
+
+        <!--zookeeper-->
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+            <version>${curator-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-recipes</artifactId>
+            <version>${curator-version}</version>
+        </dependency>
+
+
 
     </dependencies>
 
